@@ -17,6 +17,7 @@ public class Pet {
         private LocalDate born;
         private String chip;
         private String category;
+        private Boolean adopt = false;
 
         public long getId() {
             return id;
