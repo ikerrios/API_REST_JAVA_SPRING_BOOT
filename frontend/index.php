@@ -33,7 +33,7 @@
                             <td><?php echo $pet['born'] ?></td>
                         </tr>
                     <?php endforeach; ?>
-        </table> 
-        
+                </tbody>
+        </table>         
     </body>
 </html>

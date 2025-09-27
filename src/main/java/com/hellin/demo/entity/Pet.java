@@ -48,4 +48,12 @@ public class Pet {
         public void setCategory(String category) {
             this.category = category;
         }
+
+        public void setAdopt(Boolean adopt) {
+            this.adopt = adopt;
+        }
+
+        public Boolean getAdopt() {
+            return adopt;
+        }
 }
