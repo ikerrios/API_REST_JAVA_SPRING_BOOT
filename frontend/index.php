@@ -20,8 +20,7 @@
                         <td>name</td>
                         <td>chip</td>
                         <td>category</td>
-                        <td>born</td>
-                        <td>adopt</td>
+                        <td>born</t0d>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,20 +31,9 @@
                             <td><?php echo $pet['chip'] ?></td>
                             <td><?php echo $pet['category'] ?></td>
                             <td><?php echo $pet['born'] ?></td>
-                            <td><?php echo $pet['adopt'] ? 'Si' : 'no'; ?></td>
-                            <td>
-                                <?php if(!$pet['adopt']): ?>
-                                    <form method="POST" action="index.php">
-                                        <input type="hidden" name="id" value="<?php echo $pet['id'] ?>">
-                                        <button type="submit" name="adoptar" class="adoptar">Adoptar</button>
-                                    </form>
-                                    <?php else: ?>
-                                        <span class="text-muted">Adoptado</span>
-                                    <?php endif; ?>
-                            </td>
                         </tr>
                     <?php endforeach; ?>
-                </tbody>
-        </table>         
+        </table> 
+        
     </body>
 </html>
