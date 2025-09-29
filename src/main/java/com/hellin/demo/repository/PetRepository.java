@@ -9,3 +9,4 @@ import com.hellin.demo.entity.Pet;
 public interface PetRepository extends JpaRepository<Pet, Long>{
     
 }
+

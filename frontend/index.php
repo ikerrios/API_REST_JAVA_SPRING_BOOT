@@ -20,7 +20,8 @@
                         <td>name</td>
                         <td>chip</td>
                         <td>category</td>
-                        <td>born</t0d>
+                        <td>born</td>
+                        <td>adopt</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,10 @@
                             <td><?php echo $pet['chip'] ?></td>
                             <td><?php echo $pet['category'] ?></td>
                             <td><?php echo $pet['born'] ?></td>
+                            <td><form method="POST" action="http://localhost:8080/pets/adopt/<?php echo $pet['id'] ?>">
+                                <button type="submit" class="btn btn-primary">Adoptar</button>
+                                </form>
+                            </td> 
                         </tr>
                     <?php endforeach; ?>
         </table> 
