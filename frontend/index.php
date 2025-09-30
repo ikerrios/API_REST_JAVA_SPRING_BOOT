@@ -32,9 +32,13 @@
                             <td><?php echo $pet['chip'] ?></td>
                             <td><?php echo $pet['category'] ?></td>
                             <td><?php echo $pet['born'] ?></td>
-                            <td><form method="POST" action="http://localhost:8080/pets/adopt/<?php echo $pet['id'] ?>">
-                                <button type="submit" class="btn btn-primary">Adoptar</button>
+                            <td><?php if($pet['adopt'] == FALSE) { ?>
+                                <form method="POST" action="http://localhost:8080/pets/adopt/<?php echo $pet['id'] ?>">
+                                    <button type="submit" class="btn btn-primary">Adoptar</button>
                                 </form>
+                                <?php } else {
+                                    echo "Esta adoptado";
+                                }?>
                             </td> 
                         </tr>
                     <?php endforeach; ?>

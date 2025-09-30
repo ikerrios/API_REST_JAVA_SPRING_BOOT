@@ -12,6 +12,9 @@ import com.hellin.demo.repository.PetRepository;
 import com.hellin.demo.entity.Pet;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/pets")
@@ -47,5 +50,5 @@ public class PetController {
        Pet pet= petRepository.findById(id).get();
        pet.setAdopt(true);
        return petRepository.save(pet);
-    }
+    }    
 }
