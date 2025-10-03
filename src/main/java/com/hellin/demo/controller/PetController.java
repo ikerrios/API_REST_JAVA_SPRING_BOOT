@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hellin.demo.repository.PetRepository;
 
 import com.hellin.demo.entity.Pet;
@@ -37,7 +36,7 @@ public class PetController {
 
     /*
     *  Este método devuelve el listado de Pets
-    * @return List<pet> Información de cada mascota.
+    * @return List od @linl{Pet} Información de cada mascota.
      */
     @GetMapping("/list")
     public List<Pet> Hello(){
