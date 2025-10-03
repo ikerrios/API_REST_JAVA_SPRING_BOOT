@@ -32,20 +32,16 @@
                             <td><?php echo $pet['chip'] ?></td>
                             <td><?php echo $pet['category'] ?></td>
                             <td><?php echo $pet['born'] ?></td>
-                            <td><?php echo $pet['adopt'] ? 'Si' : 'no'; ?></td>
-                            <td>
-                                <?php if(!$pet['adopt']): ?>
-                                    <form method="POST" action="index.php">
-                                        <input type="hidden" name="id" value="<?php echo $pet['id'] ?>">
-                                        <button type="submit" name="adoptar" class="adoptar">Adoptar</button>
-                                    </form>
-                                    <?php else: ?>
-                                        <span class="text-muted">Adoptado</span>
-                                    <?php endif; ?>
-                            </td>
+                            <td><?php if($pet['adopt'] == FALSE) { ?>
+                                <form method="POST" action="http://localhost:8080/pets/adopt/<?php echo $pet['id'] ?>">
+                                    <button type="submit" class="btn btn-primary">Adoptar</button>
+                                </form>
+                                <?php } else {
+                                    echo "Esta adoptado";
+                                }?>
+                            </td> 
                         </tr>
                     <?php endforeach; ?>
-                </tbody>
-        </table>         
+        </table> 
     </body>
 </html>
