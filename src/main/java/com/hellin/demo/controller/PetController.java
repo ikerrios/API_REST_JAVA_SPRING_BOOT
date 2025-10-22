@@ -1,40 +1,57 @@
 package com.hellin.demo.controller;
 
-import java.util.List;
+
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hellin.demo.repository.PetRepository;
-
+import java.util.List;
 import com.hellin.demo.entity.Pet;
+import com.hellin.demo.repository.PetRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+
+
 @RestController
-@RequestMapping("/pets")
+@RequestMapping("/pet")
 /**
- * En este controlador se exponen todos los endpoints referentes a Pets {{@link Pet}}
+ * En este controlador se espone los enpoint referentes a Pets 
  * @version 1.0
- * @author Iker
+ * @author Iker Ríos
  */
 public class PetController {
 
+
     private PetRepository petRepository;
 
-    /*
-     * Constructor del controlador
-     * @param petRepository Repositorio para consultar en BD
-     */
     public PetController(PetRepository petRepository) {
         this.petRepository = petRepository;
+    }  
+
+    /**
+     * Este method devuelve el listado de mascotas
+     * @return List<Pet> informacion de cada mascota
+     */
+
+    @GetMapping ("/list")
+    public List<Pet> hello() {
+        return petRepository.findAll();
+        
     }
 
-    /*
-    *  Este método devuelve el listado de Pets
-    * @return List<pet> Información de cada mascota.
-     */
-    @GetMapping("/list")
-    public List<Pet> Hello(){
-       List<Pet> listpets = petRepository.findAll();
-        return listpets;
+    @PostMapping("/adopt/{id}")
+    // RedirectView --> redirigir al navegador a otra URL desde un controlador.
+    public Pet adopt(@PathVariable long id) {
+        Pet pet = petRepository.findById(id).get();
+
+        pet.setAdopt(true);
+        return petRepository.save(pet);
+        
+        
     }
+
 }

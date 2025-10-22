@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import java.time.LocalDate;
 
 @Entity
@@ -17,7 +16,7 @@ public class Pet {
         private LocalDate born;
         private String chip;
         private String category;
-        private Boolean adopt = false;
+        private boolean adopt;
 
         public long getId() {
             return id;
@@ -50,11 +49,11 @@ public class Pet {
             this.category = category;
         }
 
-        public void setAdopt(Boolean adopt) {
-            this.adopt = adopt;
+        public boolean isAdopt() {
+            return adopt;
         }
 
-        public Boolean getAdopt() {
-            return adopt;
+        public void setAdopt(boolean adopt) {
+            this.adopt = adopt;
         }
 }
